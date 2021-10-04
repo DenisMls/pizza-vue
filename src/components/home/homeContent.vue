@@ -22,6 +22,7 @@
   import categories from './content/categories.vue';
   import sort from './content/sort.vue';
   import pizzaBlock from './content/pizza-block.vue';
+
   import { mapActions, mapGetters } from 'vuex';
 
   export default {
