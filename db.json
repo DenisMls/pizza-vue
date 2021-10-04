@@ -1,0 +1,32 @@
+{
+  "products": [
+    {
+      "image": "pizz-cheese.png",
+      "name": "Сырная-пицца",
+      "price": "от 395 ₽",
+      "article": "product0",
+      "category": "Вегетерианские"
+    },
+    {
+      "image": "Cheeseburger.png",
+      "name": "Чизбургер-пицца",
+      "price": "от 395 ₽",
+      "article": "product1",
+      "category": "Мясные"
+    },
+    {
+      "image": "Chick.png",
+      "name": "Сырный цыпленок",
+      "price": "от 395 ₽",
+      "article": "product2",
+      "category": "Гриль"
+    },
+    {
+      "image": "shrimps.png",
+      "name": "Креветки по-азиатски",
+      "price": "от 395 ₽",
+      "article": "product3",
+      "category": "Острые"
+    }
+  ]
+}

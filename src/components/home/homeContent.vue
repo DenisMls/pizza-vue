@@ -3,19 +3,16 @@
     <div class="content">
       <div class="container">
         <div class="content__top">
-          <categories :items="items" />
+          <categories :items="items" @click="sortByCategories(items)" />
           <sort />
         </div>
         <h2 class="content__title">Все пиццы</h2>
         <div class="content__items">
-          <pizzaCheeseburger />
-          <pizzaCheese />
-          <pizzaChick />
-          <pizzaShrimps />
-          <pizzaCheeseburger />
-          <pizzaCheese />
-          <pizzaChick />
-          <pizzaShrimps />
+          <pizzaBlock
+            v-for="product in filterPizza"
+            :key="product.article"
+            :product="product"
+          />
         </div>
       </div>
     </div>
@@ -24,22 +21,18 @@
 <script>
   import categories from './content/categories.vue';
   import sort from './content/sort.vue';
-  import pizzaCheeseburger from './content/pizza-cheeseburger.vue';
-  import pizzaCheese from './content/pizza-cheese.vue';
-  import pizzaChick from './content/pizza-Chick.vue';
-  import pizzaShrimps from './content/pizza-shrimps.vue';
+  import pizzaBlock from './content/pizza-block.vue';
+  import { mapActions, mapGetters } from 'vuex';
 
   export default {
     components: {
       categories,
       sort,
-      pizzaCheeseburger,
-      pizzaCheese,
-      pizzaChick,
-      pizzaShrimps,
+      pizzaBlock,
     },
     data() {
       return {
+        sortedPizza: [],
         items: [
           { categories: 'Все' },
           { categories: 'Мясные' },
@@ -49,6 +42,33 @@
           { categories: 'Закрытые' },
         ],
       };
+    },
+    methods: {
+      ...mapActions(['GET_PRODUCTS_FROM_API']),
+      sortByCategories(items) {
+        this.sortedPizza = [];
+        let vm = this;
+        this.PRODUCTS.map(function(prodNew, PRODUCTS) {
+          console.log('do if');
+          if (PRODUCTS.category === items.categories) {
+            vm.sortedPizza.push(prodNew);
+            console.log('posle if');
+          }
+        });
+      },
+    },
+    computed: {
+      ...mapGetters(['PRODUCTS']),
+      filterPizza() {
+        if (this.sortedPizza.length) {
+          return this.sortedPizza;
+        } else {
+          return this.PRODUCTS;
+        }
+      },
+    },
+    mounted() {
+      this.GET_PRODUCTS_FROM_API();
     },
   };
 </script>

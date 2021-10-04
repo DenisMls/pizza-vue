@@ -1,7 +1,11 @@
 <template>
   <div class="pizza-block">
-    <img class="pizza-block__image" src="../../../img/Chick.png" alt="Pizza" />
-    <h4 class="pizza-block__title">Сырный цыпленок</h4>
+    <img
+      class="pizza-block__image"
+      :src="require('../../../img/' + product.image)"
+      alt="Pizza"
+    />
+    <h4 class="pizza-block__title">{{ product.name }}</h4>
     <div class="pizza-block__selector">
       <ul>
         <li class="active">тонкое</li>
@@ -14,7 +18,7 @@
       </ul>
     </div>
     <div class="pizza-block__bottom">
-      <div class="pizza-block__price">от 395 ₽</div>
+      <div class="pizza-block__price">{{ product.price }}</div>
       <div class="button button--outline button--add">
         <svg
           width="12"
@@ -34,3 +38,16 @@
     </div>
   </div>
 </template>
+
+<script>
+  export default {
+    props: {
+      product: {
+        type: Object,
+        default() {
+          return {};
+        },
+      },
+    },
+  };
+</script>
