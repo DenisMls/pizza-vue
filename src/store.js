@@ -23,11 +23,6 @@ let store = new Vuex.Store({
         });
     },
   },
-  modules: {
-    PRODUCTS(state) {
-      return state.products;
-    },
-  },
   getters: {
     PRODUCTS(state) {
       return state.products;

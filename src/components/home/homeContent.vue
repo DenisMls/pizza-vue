@@ -44,20 +44,7 @@
         ],
       };
     },
-    methods: {
-      ...mapActions(['GET_PRODUCTS_FROM_API']),
-      sortByCategories(items) {
-        this.sortedPizza = [];
-        let vm = this;
-        this.PRODUCTS.map(function(prodNew, PRODUCTS) {
-          console.log('do if');
-          if (PRODUCTS.category === items.categories) {
-            vm.sortedPizza.push(prodNew);
-            console.log('posle if');
-          }
-        });
-      },
-    },
+
     computed: {
       ...mapGetters(['PRODUCTS']),
       filterPizza() {
@@ -66,6 +53,18 @@
         } else {
           return this.PRODUCTS;
         }
+      },
+    },
+    methods: {
+      ...mapActions(['GET_PRODUCTS_FROM_API']),
+      sortByCategories(items) {
+        this.sortedPizza = [];
+        let vm = this;
+        this.PRODUCTS.map(function(prodNew, PRODUCTS) {
+          if (PRODUCTS.category === items.categories) {
+            vm.sortedPizza.push(prodNew);
+          }
+        });
       },
     },
     mounted() {

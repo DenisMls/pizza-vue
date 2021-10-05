@@ -4,8 +4,8 @@
       <li
         v-for="(item, i) in items"
         :key="i"
-        :class="{ active: active === item }"
-        @click="active = active === item ? null : item"
+        :class="{ active: active === item.categories }"
+        @click="active = item.categories"
       >
         {{ item.categories }}
       </li>
@@ -17,7 +17,7 @@
     props: ['items'],
     data() {
       return {
-        active: false,
+        active: 'Все',
       };
     },
   };
