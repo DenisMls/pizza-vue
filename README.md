@@ -11,6 +11,12 @@
 <li>переход на Scss стилей</li>
 </ul>
 
+# Для проета использовались:
+
+<ul>
+<li>Axios</li>
+<li>Json server</li>
+</ul>
 ## Project setup
 
 ```
