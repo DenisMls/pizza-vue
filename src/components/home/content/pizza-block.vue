@@ -43,7 +43,7 @@
   export default {
     props: {
       product: {
-        type: Object,
+        msg: Object,
         default() {
           return {};
         },

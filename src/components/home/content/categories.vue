@@ -14,7 +14,11 @@
 </template>
 <script>
   export default {
-    props: ['items'],
+    props: {
+      items: {
+        msg: Object,
+      },
+    },
     data() {
       return {
         active: 'Все',
