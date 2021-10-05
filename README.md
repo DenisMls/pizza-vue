@@ -1,4 +1,4 @@
-# Магазин Пицци
+# Магазин Пиццы
 
 <img  src="./src/img/Cheeseburger.png" alt="Pizza logo" />
 
