@@ -9,9 +9,9 @@
         <h2 class="content__title">Все пиццы</h2>
         <div class="content__items">
           <pizzaBlock
-            v-for="product in filterPizza"
-            :key="product.article"
-            :product="product"
+            v-for="PRODUCTS in filterPizza"
+            :key="PRODUCTS.article"
+            :product="PRODUCTS"
           />
         </div>
       </div>
@@ -62,6 +62,7 @@
         let vm = this;
         this.PRODUCTS.map(function(prodNew, PRODUCTS) {
           if (PRODUCTS.category === items.categories) {
+            console.log(prodNew);
             vm.sortedPizza.push(prodNew);
           }
         });

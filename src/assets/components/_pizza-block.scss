@@ -10,7 +10,8 @@
   }
 
   &__image {
-    width: 260px;
+    max-width: 280px;
+    width: 100%;
   }
 
   &__title {
@@ -64,5 +65,16 @@
     font-size: 22px;
     line-height: 27px;
     letter-spacing: 0.015em;
+  }
+}
+@media (max-width: 400px) {
+  .pizza-block {
+    &__bottom {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    &__price {
+      margin-bottom: 15px;
+    }
   }
 }

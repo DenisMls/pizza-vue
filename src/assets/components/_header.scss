@@ -30,3 +30,14 @@
     }
   }
 }
+@media (max-width: 400px) {
+  .header {
+    .container {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    &__cart {
+      margin-top: 20px;
+    }
+  }
+}
