@@ -4,17 +4,28 @@
     <h4 class="pizza-block__title">{{ product.name }}</h4>
     <div class="pizza-block__selector">
       <ul>
-        <li class="active">тонкое</li>
-        <li>традиционное</li>
+        <li
+          v-for="pizzaTypes in product.types"
+          :key="pizzaTypes"
+          :class="{ active: activeTypes === pizzaTypes }"
+          @click="activeTypes = pizzaTypes"
+        >
+          {{ pizzaTypes }}
+        </li>
       </ul>
       <ul>
-        <li class="active">26 см.</li>
-        <li>30 см.</li>
-        <li>40 см.</li>
+        <li
+          v-for="pizzaSize in product.sizes"
+          :key="pizzaSize"
+          :class="{ active: activeSize === pizzaSize }"
+          @click="activeSize = pizzaSize"
+        >
+          {{ pizzaSize + ' см.' }}
+        </li>
       </ul>
     </div>
     <div class="pizza-block__bottom">
-      <div class="pizza-block__price">{{ product.price }}</div>
+      <div class="pizza-block__price">{{ product.price + ' ₽' }}</div>
       <div class="button button--outline button--add">
         <svg
           width="12"
@@ -44,6 +55,12 @@
           return {};
         },
       },
+    },
+    data() {
+      return {
+        activeSize: this.product.sizes[0],
+        activeTypes: this.product.types[0],
+      };
     },
   };
 </script>

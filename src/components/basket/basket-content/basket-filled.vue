@@ -377,7 +377,10 @@
         <span> Сумма заказа: <b>900 ₽</b> </span>
       </div>
       <div class="cart__bottom-buttons">
-        <a href="/" class="button button--outline button--add go-back-btn">
+        <router-link
+          to="/"
+          class="button button--outline button--add go-back-btn"
+        >
           <svg
             width="8"
             height="14"
@@ -395,7 +398,7 @@
           </svg>
 
           <span>Вернуться назад</span>
-        </a>
+        </router-link>
         <div class="button pay-btn">
           <span>Оплатить сейчас</span>
         </div>
