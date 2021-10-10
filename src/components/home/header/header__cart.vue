@@ -1,6 +1,6 @@
 <template>
   <div class="header__cart">
-    <button class="button button--cart">
+    <router-link to="/basket" class="button button--cart">
       <span>{{ price + ' ₽' }}</span>
       <div class="button__delimiter"></div>
       <svg
@@ -33,7 +33,7 @@
         />
       </svg>
       <span>{{ number }}</span>
-    </button>
+    </router-link>
   </div>
 </template>
 <script>
