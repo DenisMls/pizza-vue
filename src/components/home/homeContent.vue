@@ -3,14 +3,14 @@
     <div class="content">
       <div class="container">
         <div class="content__top">
-          <categories :items="items" @click="sortByCategories(items)" />
+          <categories :items="items" />
           <sort />
         </div>
         <h2 class="content__title">Все пиццы</h2>
         <div class="content__items">
           <pizzaBlock
             v-for="PRODUCTS in filterPizza"
-            :key="PRODUCTS.article"
+            :key="PRODUCTS.id"
             :product="PRODUCTS"
           />
         </div>
@@ -57,16 +57,6 @@
     },
     methods: {
       ...mapActions(['GET_PRODUCTS_FROM_API']),
-      sortByCategories(items) {
-        this.sortedPizza = [];
-        let vm = this;
-        this.PRODUCTS.map(function(prodNew, PRODUCTS) {
-          if (PRODUCTS.category === items.categories) {
-            console.log(prodNew);
-            vm.sortedPizza.push(prodNew);
-          }
-        });
-      },
     },
     mounted() {
       this.GET_PRODUCTS_FROM_API();

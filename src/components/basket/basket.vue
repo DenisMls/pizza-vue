@@ -7,26 +7,21 @@
       </div>
     </div>
     <div class="content">
-      <div class="container container--cart">
-        <div class="cart cart--empty">
-          <h2>Корзина пустая <icon>😕</icon></h2>
-          <p>
-            Вероятней всего, вы не заказывали ещё пиццу.<br />
-            Для того, чтобы заказать пиццу, перейди на главную страницу.
-          </p>
-          <img src="../../img/empty-cart.png" alt="Empty cart" />
-          <router-link to="/" class="button button--black">
-            <span>Вернуться назад</span>
-          </router-link>
-        </div>
+      <div v-if="false" class="container container--cart">
+        <basketEmpety />
+      </div>
+      <div v-if="true" class="container container--cart">
+        <basketFilled v-if="true" />
       </div>
     </div>
   </div>
 </template>
 <script>
   import logo from '../home/header/logo.vue';
-  import headerCart from '../home/header/header__cart.vue';
+  import headerCart from '../home/header/header-cart.vue';
+  import basketEmpety from './basket-content/basket-empty.vue';
+  import basketFilled from './basket-content/basket-filled.vue';
   export default {
-    components: { logo, headerCart },
+    components: { logo, headerCart, basketEmpety, basketFilled },
   };
 </script>

@@ -1,10 +1,6 @@
 <template>
   <div class="pizza-block">
-    <img
-      class="pizza-block__image"
-      :src="require('../../../img/' + product.image)"
-      alt="Pizza"
-    />
+    <img class="pizza-block__image" :src="product.imageUrl" alt="Pizza" />
     <h4 class="pizza-block__title">{{ product.name }}</h4>
     <div class="pizza-block__selector">
       <ul>

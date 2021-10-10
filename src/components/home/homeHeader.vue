@@ -9,7 +9,7 @@
   </div>
 </template>
 <script>
-  import headerCart from './header/header__cart.vue';
+  import headerCart from './header/header-cart.vue';
   import logo from './header/logo.vue';
   export default {
     components: { logo, headerCart },
