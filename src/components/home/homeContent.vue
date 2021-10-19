@@ -4,14 +4,14 @@
       <div class="container">
         <div class="content__top">
           <categories :items="items" />
-          <sort />
         </div>
         <h2 class="content__title">Все пиццы</h2>
         <div class="content__items">
           <pizzaBlock
             v-for="PRODUCTS in filterPizza"
-            :key="PRODUCTS.id"
+            :key="PRODUCTS"
             :product="PRODUCTS"
+            @addToPizza="addToPizza"
           />
         </div>
       </div>
@@ -20,7 +20,7 @@
 </template>
 <script>
   import categories from './content/categories.vue';
-  import sort from './content/sort.vue';
+
   import pizzaBlock from './content/pizza-block.vue';
 
   import { mapActions, mapGetters } from 'vuex';
@@ -28,19 +28,19 @@
   export default {
     components: {
       categories,
-      sort,
       pizzaBlock,
     },
     data() {
       return {
         sortedPizza: [],
+        prodVyv: [],
         items: [
-          { categories: 'Все' },
-          { categories: 'Мясные' },
-          { categories: 'Вегетарианская' },
-          { categories: 'Гриль' },
-          { categories: 'Острые' },
-          { categories: 'Закрытые' },
+          { categories: 'Все', volume: '0' },
+          { categories: 'Мясные', volume: '1' },
+          { categories: 'Вегетарианская', volume: '2' },
+          { categories: 'Гриль', volume: '3' },
+          { categories: 'Острые', volume: '4' },
+          { categories: 'Закрытые', volume: '5' },
         ],
       };
     },
@@ -56,7 +56,10 @@
       },
     },
     methods: {
-      ...mapActions(['GET_PRODUCTS_FROM_API']),
+      ...mapActions(['GET_PRODUCTS_FROM_API', 'ADD_TO_PIZZA']),
+      addToPizza(data) {
+        this.ADD_TO_PIZZA(data);
+      },
     },
     mounted() {
       this.GET_PRODUCTS_FROM_API();

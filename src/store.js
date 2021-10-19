@@ -2,10 +2,13 @@ import Vuex from 'vuex';
 import axios from 'axios';
 
 let store = new Vuex.Store({
-  state: { products: [] },
+  state: { products: [], basket: [] },
   mutations: {
     SET_PRODUCTS_TO_STATE: (state, products) => {
       state.products = products;
+    },
+    SET_PIZZA: (state, product) => {
+      state.basket.push(product);
     },
   },
   actions: {
@@ -22,10 +25,16 @@ let store = new Vuex.Store({
           return error;
         });
     },
+    ADD_TO_PIZZA({ commit }, product) {
+      commit('SET_PIZZA', product);
+    },
   },
   getters: {
     PRODUCTS(state) {
       return state.products;
+    },
+    BASKET(state) {
+      return state.basket;
     },
   },
 });

@@ -25,8 +25,8 @@
       </ul>
     </div>
     <div class="pizza-block__bottom">
-      <div class="pizza-block__price">{{ product.price + ' ₽' }}</div>
-      <div class="button button--outline button--add">
+      <div class="pizza-block__price">{{ 'от ' + product.price + ' ₽' }}</div>
+      <div class="button button--outline button--add" @click="addToPizza()">
         <svg
           width="12"
           height="12"
@@ -61,6 +61,11 @@
         activeSize: this.product.sizes[0],
         activeTypes: this.product.types[0],
       };
+    },
+    methods: {
+      addToPizza() {
+        this.$emit('addToPizza', this.product);
+      },
     },
   };
 </script>
