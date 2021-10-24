@@ -40,7 +40,7 @@
           />
         </svg>
         <span>Добавить</span>
-        <i>2</i>
+        <i>{{ basketArray.length }}</i>
       </div>
     </div>
   </div>
@@ -50,6 +50,12 @@
   export default {
     props: {
       product: {
+        msg: Object,
+        default() {
+          return {};
+        },
+      },
+      basketArray: {
         msg: Object,
         default() {
           return {};

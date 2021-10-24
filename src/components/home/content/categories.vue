@@ -17,6 +17,9 @@
     props: {
       items: {
         msg: Object,
+        default() {
+          return {};
+        },
       },
     },
     data() {

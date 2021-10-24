@@ -9,7 +9,7 @@
         />
         Корзина
       </h2>
-      <div class="cart__clear">
+      <div class="cart__clear" @click="clearBasket()">
         <svg
           width="20"
           height="20"
@@ -52,3 +52,15 @@
     </div>
   </div>
 </template>
+<script>
+  import { mapActions } from 'vuex';
+  export default {
+    methods: {
+      ...mapActions(['CLEAR_TO_BASKET']),
+
+      clearBasket() {
+        this.CLEAR_TO_BASKET();
+      },
+    },
+  };
+</script>

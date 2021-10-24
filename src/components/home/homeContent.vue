@@ -11,6 +11,7 @@
             v-for="PRODUCTS in filterPizza"
             :key="PRODUCTS"
             :product="PRODUCTS"
+            :basketArray="BASKET"
             @addToPizza="addToPizza"
           />
         </div>
@@ -46,7 +47,7 @@
     },
 
     computed: {
-      ...mapGetters(['PRODUCTS']),
+      ...mapGetters(['PRODUCTS', 'BASKET']),
       filterPizza() {
         if (this.sortedPizza.length) {
           return this.sortedPizza;
@@ -56,7 +57,11 @@
       },
     },
     methods: {
-      ...mapActions(['GET_PRODUCTS_FROM_API', 'ADD_TO_PIZZA']),
+      ...mapActions([
+        'GET_PRODUCTS_FROM_API',
+        'ADD_TO_PIZZA',
+        'CLEAR_TO_BASKET',
+      ]),
       addToPizza(data) {
         this.ADD_TO_PIZZA(data);
       },
